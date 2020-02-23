@@ -11,7 +11,7 @@ interface LoginApi {
     suspend fun login(@Body req:LoginRequest): LoginResponse
 
     companion object {
-        const val BASE_URL = "http://floral-cherry-7673.getsandbox.com"
+        const val BASE_URL = "https://floral-cherry-7673.getsandbox.com"
         const val LOGIN_PATH = "/login"
     }
 }

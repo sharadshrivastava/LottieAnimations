@@ -41,13 +41,13 @@ class LoginFragment : Fragment(){
         binding.loginEt.requestFocus()
         binding.submitBtn.setOnClickListener {
             binding.isLoading = true
-            login(binding.loginEt.text.toString())
             binding.loginEt.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            login(binding.loginEt.text.toString())
         }
     }
 
     private fun login(code:String) {
-        vm.login(code).observe(this, Observer { resource ->
+        vm.login(code).observe(viewLifecycleOwner, Observer { resource ->
             if (resource?.status == Resource.Status.SUCCESS) {
                 binding.isLoading = false
                 vm.setData(resource.data)
