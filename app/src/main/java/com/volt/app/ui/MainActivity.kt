@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         setSupportActionBar(toolbar)
 
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        //supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, LoginFragment.newInstance()).commit()
