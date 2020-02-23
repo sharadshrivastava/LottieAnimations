@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
-
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.volt.app.ui.login.LoginFragment"
@@ -19,5 +18,4 @@
         android:name="com.volt.app.ui.reward.RewardFragment"
         android:label="@string/reward"
         tools:layout="@layout/reward_fragment"/>
-
 </navigation>
