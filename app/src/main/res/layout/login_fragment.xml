@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="vm"
+            type="com.volt.app.ui.login.LoginViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/otpTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/list_margin"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_size_otp"
+            android:text="@string/enter_otp"/>
+
+        <EditText
+            android:id="@+id/loginEt"
+            android:layout_width="260dp"
+            android:layout_height="46dp"
+            android:singleLine="true"
+            android:gravity="center_horizontal|center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otpTv"
+            android:layout_marginTop="@dimen/std_large_margin"
+            android:layout_marginStart="@dimen/std_xlarge_margin"
+            android:background="@drawable/rectangle"/>
+
+        <ImageButton
+            android:id="@+id/submitBtn"
+            android:layout_width="80dp"
+            android:layout_height="46dp"
+            app:layout_constraintStart_toEndOf="@id/loginEt"
+            app:layout_constraintBottom_toBottomOf="@id/loginEt"
+            app:layout_constraintTop_toTopOf="@id/loginEt"
+            android:src="@drawable/arrow"
+            android:background="@color/colorPrimary"
+            android:visibility="@{isLoading ? View.GONE : View.VISIBLE}"/>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="80dp"
+            android:layout_height="46dp"
+            app:layout_constraintStart_toEndOf="@id/loginEt"
+            app:layout_constraintBottom_toBottomOf="@id/loginEt"
+            app:layout_constraintTop_toTopOf="@id/loginEt"
+            android:background="@color/colorPrimary"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
