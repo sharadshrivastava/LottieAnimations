@@ -17,14 +17,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     @Inject
     lateinit var appRepository: AppRepository
 
-    var response: LoginResponse? = null
-
     init {
         VoltApp.get().component.inject(this)
-    }
-
-    fun setData(responseData: LoginResponse?) {
-        response = responseData
     }
 
     fun login(code:String): LiveData<Resource<LoginResponse>> = liveData(Dispatchers.IO){

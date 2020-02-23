@@ -16,7 +16,4 @@ class RewardFragment : Fragment() {
         return inflater.inflate(R.layout.reward_fragment, container, false)
     }
 
-    companion object {
-        fun newInstance() = RewardFragment()
-    }
 }

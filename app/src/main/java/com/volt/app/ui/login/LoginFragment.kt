@@ -10,12 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.volt.app.R
 import com.volt.app.data.wrapper.Resource
 import com.volt.app.databinding.LoginFragmentBinding
-import kotlinx.android.synthetic.main.login_fragment.*
-import kotlinx.android.synthetic.main.main_activity.*
 
 class LoginFragment : Fragment(){
 
@@ -46,11 +45,16 @@ class LoginFragment : Fragment(){
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        (activity as AppCompatActivity).supportActionBar?.hide()
+    }
+
     private fun login(code:String) {
         vm.login(code).observe(viewLifecycleOwner, Observer { resource ->
             if (resource?.status == Resource.Status.SUCCESS) {
                 binding.isLoading = false
-                vm.setData(resource.data)
+                findNavController().navigate(R.id.loginNavAction)
             } else {
                 binding.isLoading = false
                 Snackbar.make(binding.root, resource?.message ?: "Error", Snackbar.LENGTH_LONG)
@@ -59,17 +63,8 @@ class LoginFragment : Fragment(){
         })
     }
 
-    override fun onStart() {
-        super.onStart()
-        (activity as AppCompatActivity).supportActionBar?.hide()
-    }
-
     override fun onStop() {
         (activity as AppCompatActivity).supportActionBar?.show()
         super.onStop()
-    }
-
-    companion object {
-        fun newInstance() = LoginFragment()
     }
 }

@@ -15,7 +15,7 @@
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_med">15sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
-    <dimen name="text_size_header">24sp</dimen>
+    <dimen name="text_size_header">20sp</dimen>
     <dimen name="text_size_otp">56sp</dimen>
     <dimen name="card_width">380dp</dimen>
     <dimen name="card_height">200dp</dimen>

@@ -6,8 +6,9 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.volt.app.R
-import com.volt.app.ui.login.LoginFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,13 +21,16 @@ class MainActivity : AppCompatActivity() {
         checkPermissions()
         setContentView(R.layout.main_activity)
         setSupportActionBar(toolbar)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setDisplayShowHomeEnabled(true);
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, LoginFragment.newInstance()).commit()
     }
+
+    override fun onStart() {
+        super.onStart()
+        NavigationUI.setupActionBarWithNavController(this, NavHostFragment.
+            findNavController(navHostFragment))
+    }
+
+    override fun onSupportNavigateUp()
+            = NavHostFragment.findNavController(navHostFragment).navigateUp()
 
     private fun checkPermissions() {
         var result: Int
