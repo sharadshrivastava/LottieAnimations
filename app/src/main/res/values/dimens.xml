@@ -9,23 +9,11 @@
     <dimen name="std_large_med_margin">28dp</dimen>
     <dimen name="std_xlarge_margin">32dp</dimen>
     <dimen name="text_margin">50dp</dimen>
-    <dimen name="list_height">240dp</dimen>
-    <dimen name="image_size">24dp</dimen>
-    <dimen name="text_size">16sp</dimen>
+
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_med">15sp</dimen>
+    <dimen name="text_size">16sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="text_size_header">20sp</dimen>
     <dimen name="text_size_otp">56sp</dimen>
-    <dimen name="card_width">380dp</dimen>
-    <dimen name="card_height">200dp</dimen>
-    <dimen name="card_radius">12dp</dimen>
-    <dimen name="card_elevation">6dp</dimen>
-    <dimen name="expense_card_width">180dp</dimen>
-    <dimen name="expense_card_height">170dp</dimen>
-    <dimen name="pie_chart_width">120dp</dimen>
-    <dimen name="bar_width">36dp</dimen>
-    <dimen name="one_dp">1dp</dimen>
-    <dimen name="zero_dp">0dp</dimen>
-
 </resources>

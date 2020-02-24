@@ -28,10 +28,19 @@ open class ResponseHandler {
 
         private fun getErrorMessage(code: Int): String {
             return when (code) {
-                401 -> VoltApp.get().getString(R.string.unauthorized)
-                404 -> VoltApp.get().getString(R.string.not_found)
+                ErrorCodes.UN_AUTH.code -> VoltApp.get().getString(R.string.unauthorized)
+                ErrorCodes.NOT_FOUND.code -> VoltApp.get().getString(R.string.not_found)
+                ErrorCodes.INTERNAL_ERR.code -> VoltApp.get().getString(R.string.internal_err)
+                ErrorCodes.SVC_UN_AVAIL.code -> VoltApp.get().getString(R.string.svc_un_avail)
                 else -> VoltApp.get().getString(R.string.response_error)
             }
         }
+    }
+
+    enum class ErrorCodes(val code: Int) {
+        UN_AUTH(401),
+        NOT_FOUND(404),
+        INTERNAL_ERR(500),
+        SVC_UN_AVAIL(503)
     }
 }

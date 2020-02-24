@@ -4,10 +4,9 @@
     <string name="response_error">Something went wrong</string>
     <string name="unauthorized">Unauthorized</string>
     <string name="not_found">Not found</string>
+    <string name="internal_err">Internal Server Error</string>
+    <string name="svc_un_avail">Service Unavailable</string>
     <string name="timeout">Timeout</string>
     <string name="reward">Reward</string>
-    <string name="expense">$%1$s</string>
-    <string name="percent">%</string>
-    <string name="percentValue">%1$d%2$s</string>
     <string name="enter_otp">Please enter your OTP</string>
 </resources>
