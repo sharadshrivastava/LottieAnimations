@@ -15,5 +15,4 @@ class RewardFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.reward_fragment, container, false)
     }
-
 }

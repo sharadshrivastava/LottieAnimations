@@ -45,11 +45,6 @@ class LoginFragment : Fragment(){
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        (activity as AppCompatActivity).supportActionBar?.hide()
-    }
-
     private fun login(code:String) {
         vm.login(code).observe(viewLifecycleOwner, Observer { resource ->
             if (resource?.status == Resource.Status.SUCCESS) {
@@ -61,6 +56,11 @@ class LoginFragment : Fragment(){
                     .show()
             }
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
     override fun onStop() {

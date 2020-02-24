@@ -1,5 +1,7 @@
 package com.volt.app.data.wrapper
 
+import com.volt.app.R
+import com.volt.app.VoltApp
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 
@@ -16,7 +18,7 @@ open class ResponseHandler {
                     getErrorMessage(
                         e.code()
                     ), null)
-                is SocketTimeoutException -> Resource.error("Timeout", null)
+                is SocketTimeoutException -> Resource.error(VoltApp.get().getString(R.string.timeout), null)
                 else -> Resource.error(
                     getErrorMessage(
                         Int.MAX_VALUE
@@ -26,9 +28,9 @@ open class ResponseHandler {
 
         private fun getErrorMessage(code: Int): String {
             return when (code) {
-                401 -> "Unauthorised"
-                404 -> "Not found"
-                else -> "Something went wrong"
+                401 -> VoltApp.get().getString(R.string.unauthorized)
+                404 -> VoltApp.get().getString(R.string.not_found)
+                else -> VoltApp.get().getString(R.string.response_error)
             }
         }
     }
