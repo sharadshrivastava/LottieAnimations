@@ -1,14 +1,17 @@
 package com.volt.app.ui
 
 
+import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.volt.app.R
-import org.hamcrest.CoreMatchers.allOf
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -20,7 +23,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class AccountDetailsFragmentTest {
+class LoginFragmentTest {
 
     private val UILOAD_DELAY = 2000L
 
@@ -33,18 +36,21 @@ class AccountDetailsFragmentTest {
         Thread.sleep(UILOAD_DELAY)
     }
 
-    //Testcase to check whether Jan month is visible or not on the UI.
     @Test
-    fun testMonthAvailable() {
-//        onView(allOf(withId(R.id.month), withParent(withId(R.id.firstMonthChart)))).
-//            check(matches(isDisplayed())).check(matches(withText("Jan")))
+    fun testTextIsVisible() {
+        onView(withId(R.id.otpTv)).check(matches(isDisplayed()))
     }
 
-    //Testcase to check whether total expenses of Jan month is correctly displayed or not.
     @Test
-    fun testMonthExpense() {
-//        onView(allOf(withId(R.id.totalAmount), withParent(withId(R.id.firstMonthChart)))).
-//            check(matches(isDisplayed())).check(matches(withText("$1387.0")))
+    fun testEditTextIsVisible() {
+        onView(withId(R.id.loginEt)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun isKeyboardShown() {
+        val inputMethodManager = InstrumentationRegistry.getInstrumentation().targetContext.getSystemService(
+            Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        Assert.assertTrue(inputMethodManager.isAcceptingText)
     }
 
     //In the same way, using espresso we can test other UI components.

@@ -42,6 +42,6 @@ abstract class BaseTest {
     }
 
     fun setErrorResponse() {
-        mockWebServer.enqueue(MockResponse().setResponseCode(400).setBody("{}"))
+        mockWebServer.enqueue(MockResponse().setResponseCode(401).setBody("{}"))
     }
 }

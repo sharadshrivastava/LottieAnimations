@@ -4,6 +4,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import com.volt.app.R
+import kotlinx.android.synthetic.main.main_activity.*
 
 import org.junit.Assert
 import org.junit.Rule
@@ -19,7 +20,7 @@ class MainActivityTest {
 
     @Test
     fun testFragmentLoaded() {
-        val fragment = rule.activity.supportFragmentManager.findFragmentById(R.id.container)
+        val fragment = rule.activity.navHostFragment
         Assert.assertNotNull(fragment)
     }
 }

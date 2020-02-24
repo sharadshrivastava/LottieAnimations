@@ -24,7 +24,7 @@ class TestModule {
 
     @Provides
     @Singleton
-    fun accountDetailsApi(retrofit: Retrofit): LoginApi = retrofit.create(LoginApi::class.java)
+    fun loginApi(retrofit: Retrofit): LoginApi = retrofit.create(LoginApi::class.java)
 
 
 }
