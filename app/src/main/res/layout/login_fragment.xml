@@ -35,8 +35,8 @@
 
         <EditText
             android:id="@+id/loginEt"
-            android:layout_width="260dp"
-            android:layout_height="46dp"
+            android:layout_width="@dimen/edit_text_width"
+            android:layout_height="@dimen/edit_text_height"
             android:singleLine="true"
             android:gravity="center_horizontal|center_vertical"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +47,8 @@
 
         <ImageButton
             android:id="@+id/submitBtn"
-            android:layout_width="80dp"
-            android:layout_height="46dp"
+            android:layout_width="@dimen/submit_width"
+            android:layout_height="@dimen/edit_text_height"
             app:layout_constraintStart_toEndOf="@id/loginEt"
             app:layout_constraintBottom_toBottomOf="@id/loginEt"
             app:layout_constraintTop_toTopOf="@id/loginEt"
