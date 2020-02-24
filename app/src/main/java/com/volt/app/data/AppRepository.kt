@@ -14,7 +14,8 @@ class AppRepository @Inject constructor() {
     @Inject
     lateinit var loginApi: LoginApi
 
-    //As of now retrofit doesn't support error handling with coroutines so errors need to be handled this way.
+    //As of now retrofit doesn't support error handling with coroutines so errors need to be handled using try catch.
+    //In coming releases they will introduce onSuccess and onError standard methods.
     suspend fun login(req:LoginRequest): Resource<LoginResponse> {
         try{
             return ResponseHandler.handleSuccess(loginApi.login(req))
