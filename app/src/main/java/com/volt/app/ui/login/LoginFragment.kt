@@ -52,8 +52,8 @@ class LoginFragment : Fragment(){
                 findNavController().navigate(R.id.loginNavAction)
             } else {
                 binding.isLoading = false
-                Snackbar.make(binding.root, resource?.message ?: "Error", Snackbar.LENGTH_LONG)
-                    .show()
+                Snackbar.make(binding.root, resource?.message ?: getString(R.string.network_error),
+                    Snackbar.LENGTH_LONG).show()
             }
         })
     }
